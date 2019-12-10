@@ -4,23 +4,31 @@ class Hoover {
   constructor(cleaningDetails) {
     this.position = cleaningDetails.hooverPosition;
 
-    this._clean(cleaningDetails.drivingInstructions);
+    this._clean(cleaningDetails);
   }
 
-  _clean(drivingInstructions) {
-    drivingInstructions.forEach(instruction => {
+  _clean(cleaningDetails) {
+    cleaningDetails.drivingInstructions.forEach(instruction => {
       switch (instruction) {
         case 'N':
-          this.position[1]++;
+          if (this.position[1] < cleaningDetails.roomY) {
+            this.position[1]++;
+          };
           break;
         case 'S':
-          this.position[1]--;
+          if (this.position[1] > 0) {
+            this.position[1]--;
+          };
           break;
         case 'E':
-          this.position[0]++;
+          if (this.position[0] < cleaningDetails.roomX) {
+            this.position[0]++;
+          };
           break;
         case 'W':
-          this.position[0]--;
+          if (this.position[0] > 0) {
+            this.position[0]--;
+          };
           break;
       }
     });
