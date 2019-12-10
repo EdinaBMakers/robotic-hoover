@@ -1,0 +1,22 @@
+{
+  "name": "robotic-hoover",
+  "version": "1.0.0",
+  "description": "A Node.js application that navigates an imaginary robotic hoover",
+  "main": "program.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdinaBMakers/robotic-hoover.git"
+  },
+  "author": "Edina Bolkeny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EdinaBMakers/robotic-hoover/issues"
+  },
+  "homepage": "https://github.com/EdinaBMakers/robotic-hoover#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
