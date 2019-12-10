@@ -3,6 +3,8 @@
 class Hoover {
   constructor(cleaningDetails) {
     this.position = cleaningDetails.hooverPosition;
+    this.dirtsPositionStrs = cleaningDetails.dirtPositions.map(JSON.stringify);
+    this.dirtsRemoved = 0;
 
     this._clean(cleaningDetails);
   }
@@ -30,6 +32,10 @@ class Hoover {
             this.position[0]--;
           };
           break;
+      }
+
+      if (this.dirtsPositionStrs.includes(JSON.stringify(this.position))) {
+        this.dirtsRemoved++;
       }
     });
   }

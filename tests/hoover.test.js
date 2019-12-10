@@ -67,4 +67,11 @@ describe('Hoover', () => {
 
     expect(hoover.position).toStrictEqual([0, 4]);
   });
+
+  test('it can remove dirt patch', () => {
+    const cleaningDetails = new CleaningDetails(5, 5, [0, 0], ['N', 'E'], [[1, 1]]);
+    const hoover = new Hoover(cleaningDetails);
+
+    expect(hoover.dirtsRemoved).toBe(1);
+  });
 });
