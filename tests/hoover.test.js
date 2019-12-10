@@ -18,4 +18,11 @@ describe('Hoover', () => {
 
     expect(hoover.position).toStrictEqual([0, 1]);
   });
+  
+  test('it can go south', () => {
+    const cleaningDetails = new CleaningDetails(5, 5, [4, 4], ['S'], []);
+    const hoover = new Hoover(cleaningDetails);
+
+    expect(hoover.position).toStrictEqual([4, 3]);
+  });
 });

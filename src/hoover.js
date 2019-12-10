@@ -13,6 +13,9 @@ class Hoover {
         case 'N':
           this.position[1]++;
           break;
+        case 'S':
+          this.position[1]--;
+          break;
       }
     });
   }
