@@ -2,7 +2,7 @@
 
 class Hoover {
   constructor(cleaningDetails) {
-    this.position = cleaningDetails.hooverPosition;
+    this.hooverPosition = cleaningDetails.hooverPosition;
     this.dirtsPositionStrs = cleaningDetails.dirtPositions.map(JSON.stringify);
     this.dirtsRemoved = 0;
 
@@ -13,29 +13,33 @@ class Hoover {
     cleaningDetails.drivingInstructions.forEach(instruction => {
       switch (instruction) {
         case 'N':
-          if (this.position[1] < cleaningDetails.roomY) {
-            this.position[1]++;
+          if (this.hooverPosition[1] < cleaningDetails.roomY) {
+            this.hooverPosition[1]++;
           };
           break;
         case 'S':
-          if (this.position[1] > 0) {
-            this.position[1]--;
+          if (this.hooverPosition[1] > 0) {
+            this.hooverPosition[1]--;
           };
           break;
         case 'E':
-          if (this.position[0] < cleaningDetails.roomX) {
-            this.position[0]++;
+          if (this.hooverPosition[0] < cleaningDetails.roomX) {
+            this.hooverPosition[0]++;
           };
           break;
         case 'W':
-          if (this.position[0] > 0) {
-            this.position[0]--;
+          if (this.hooverPosition[0] > 0) {
+            this.hooverPosition[0]--;
           };
           break;
       }
 
-      if (this.dirtsPositionStrs.includes(JSON.stringify(this.position))) {
+      let positionStr =  JSON.stringify(this.hooverPosition);
+
+      if (this.dirtsPositionStrs.includes(positionStr)) {
         this.dirtsRemoved++;
+        let dirtIndex = this.dirtsPositionStrs.indexOf(positionStr);
+        this.dirtsPositionStrs.splice(dirtIndex, 1);
       }
     });
   }
