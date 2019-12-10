@@ -5,7 +5,7 @@ const CleaningDetails = require('./cleaningDetails');
 
 class CleaningDetailsReader {
   read(file) {
-    const lines = fs.readFileSync(file).split('\n');
+    const lines = fs.readFileSync(file, 'utf8').split('\n');
     const drivingInstructions = [...lines.pop()];
     const roomDimensions = lines.shift().split(' ');
     const roomX = parseInt(roomDimensions[0]);
