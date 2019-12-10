@@ -16,6 +16,9 @@ class Hoover {
         case 'S':
           this.position[1]--;
           break;
+        case 'E':
+          this.position[0]++;
+          break;
       }
     });
   }
