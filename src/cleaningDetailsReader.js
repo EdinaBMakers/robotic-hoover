@@ -11,12 +11,14 @@ class CleaningDetailsReader {
     const roomX = parseInt(roomDimensions[0]);
     const roomY = parseInt(roomDimensions[1]);
     const hooverPosition = lines.shift().split(' ').map(Number);
+    const dirtPositions = lines.map(line => line.split(' ').map(Number));
 
     return new CleaningDetails(
       roomX, 
       roomY, 
       hooverPosition, 
-      drivingInstructions);
+      drivingInstructions,
+      dirtPositions);
   }
 }
 

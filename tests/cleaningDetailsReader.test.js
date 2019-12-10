@@ -39,5 +39,13 @@ describe('CleaningDetailsReader', () => {
 
       expect(cleaningDetails.drivingInstructions).toStrictEqual(['N', 'S', 'E', 'W']);
     });
+
+    test('it can read dirt patch positions', () => {
+      fs.givenFileContent(`5 4\n2 3\n1 0\n2 2\nNSEW`);
+
+      const cleaningDetails = reader.read('file');
+
+      expect(cleaningDetails.dirtPositions).toStrictEqual([[1, 0], [2, 2]]);
+    });
   });
 });
