@@ -32,4 +32,11 @@ describe('Hoover', () => {
 
     expect(hoover.position).toStrictEqual([5, 4]);
   });
+
+  test('it can go west', () => {
+    const cleaningDetails = new CleaningDetails(5, 5, [4, 4], ['W'], []);
+    const hoover = new Hoover(cleaningDetails);
+
+    expect(hoover.position).toStrictEqual([3, 4]);
+  });
 });
