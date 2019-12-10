@@ -9,8 +9,9 @@ class CleaningDetailsReader {
     const roomDimensions = lines.shift().split(' ');
     const roomX = parseInt(roomDimensions[0]);
     const roomY = parseInt(roomDimensions[1]);
+    const hooverPosition = lines.shift().split(' ').map(Number);
 
-    return new CleaningDetails(roomX, roomY);
+    return new CleaningDetails(roomX, roomY, hooverPosition);
   }
 }
 

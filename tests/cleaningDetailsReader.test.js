@@ -16,5 +16,14 @@ describe('CleaningDetailsReader', () => {
       expect(cleaningDetails.roomX).toBe(5)
       expect(cleaningDetails.roomY).toBe(4)
     });
+
+    test('it can read hoover position', () => {
+      fs.givenFileContent(`5 4\n2 3`);
+
+      const reader = new CleaningDetailsReader();
+      const cleaningDetails = reader.read('file');
+
+      expect(cleaningDetails.hooverPosition).toStrictEqual([2, 3]);
+    });
   });
 });
